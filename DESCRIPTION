@@ -1,11 +1,18 @@
 Package: Rkeyline
-Title: What the Package Does (One Line, Title Case)
+Title: Terrain and Keyline Analysis Tools for Digital Elevation Models
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Lena", "Nill", , "lena.nill@gmx.de", role = c("aut", "cre"))
+Description: A toolkit for geomorphological analysis and keyline design planning from Digital Elevation Models (DTMs). Provides functions to calculate terrain attributes (slope, aspect, hillshade, contours) and hydrological metrics (flow accumulation, stream networks) using WhiteboxTools. Extracts valley and ridge networks through standard and inverted hydrological processing, identifies main valley and ridge lines by flow accumulation ranking, and generates approximate keylines for land management planning following keyline design principles. Includes visualization functions for terrain, stream networks, valley and ridge systems, and keylines. Note that generated keylines are computational approximations intended for desktop planning only and require field verification by an experienced practitioner before implementation.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Imports: 
+    dplyr,
+    sf,
+    shiny,
+    smoothr,
+    terra,
+    viridis,
+    whitebox
