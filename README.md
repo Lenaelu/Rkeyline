@@ -161,3 +161,10 @@ Keyline design is a land and water management methodology developed by P.A. Yeom
 ## License
 
 MIT
+
+## Acknowledgements
+
+The algorithms in this package are based on the 
+[TopoDArain plugin](https://github.com/wickit7/topo-drain-plugin), which provided 
+the methodological foundation for the terrain analysis 
+and keyline generation workflows.
