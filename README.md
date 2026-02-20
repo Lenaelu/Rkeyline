@@ -166,5 +166,4 @@ MIT
 
 The algorithms in this package are based on the 
 [TopoDArain plugin](https://github.com/wickit7/topo-drain-plugin), which provided 
-the methodological foundation for the terrain analysis 
-and keyline generation workflows.
+the methodological foundation for the terrain analysis.
