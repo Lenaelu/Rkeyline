@@ -82,13 +82,6 @@ valleys <- extract_networks(dtm, type = "valley", metrics = metrics)
 ridges  <- extract_networks(dtm, type = "ridge",  metrics = metrics)
 ```
 
-Or use the wrapper functions:
-
-```r
-valleys <- extract_valleys(dtm, metrics = metrics)
-ridges  <- extract_ridges(dtm, metrics = metrics)
-```
-
 ### Step 4: Extract main valleys and ridges
 
 Select the top N valley and ridge lines ranked by flow accumulation.
@@ -139,8 +132,6 @@ plot_flow_acc(dtm, metrics = metrics)
 |---|---|
 | `calc_geomorph_metrics()` | Calculate all terrain and hydrological metrics from a DTM |
 | `extract_networks()` | Extract valley or ridge networks |
-| `extract_valleys()` | Wrapper for valley network extraction |
-| `extract_ridges()` | Wrapper for ridge network extraction |
 | `extract_main_valleys()` | Identify main valley lines by flow accumulation |
 | `extract_main_ridges()` | Identify main ridge lines by flow accumulation |
 | `create_keylines()` | Generate approximate keylines from valley or ridge lines |
@@ -165,5 +156,5 @@ MIT
 ## Acknowledgements
 
 The algorithms in this package are based on the 
-[TopoDArain plugin](https://github.com/wickit7/topo-drain-plugin), which provided 
+[TopoDrain plugin](https://github.com/wickit7/topo-drain-plugin), which provided 
 the methodological foundation for the terrain analysis.
