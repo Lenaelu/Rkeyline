@@ -21,12 +21,33 @@ Make sure you have the following packages installed:
 install.packages(c("terra", "sf", "dplyr", "smoothr", "shiny", "viridis"))
 ```
 
-Rkeyline also requires **WhiteboxTools**:
+Rkeyline also requires **WhiteboxTools**, which is used for hydrological processing (depression filling, flow direction, flow accumulation, and stream extraction) and for converting raster stream networks to vector lines. WhiteboxTools cannot work with R objects directly — it reads and writes files on disk, which is why a persistent output folder is required.
 
 ```r
 install.packages("whitebox")
 whitebox::install_whitebox()
 ```
+
+---
+
+## Important: Output Folder
+
+Several functions use WhiteboxTools under the hood, which requires intermediate files to be written to disk. **You must specify an `output_folder` that exists and is writable on your system.** Both `calc_geomorph_metrics()` and `extract_networks()` need access to the same folder — files written in Step 2 are read again in Step 3.
+
+> ⚠️ Do not rely on the default `tempdir()`. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and `extract_networks()` will fail. Always set a persistent folder explicitly.
+
+```r
+# Set once and reuse throughout the entire workflow
+output_folder <- "C:/my_project/rkeyline_temp"   # Windows
+output_folder <- "/home/user/my_project/temp"     # Mac/Linux
+```
+
+The following files are written by `calc_geomorph_metrics()` and must still be present when `extract_networks()` runs:
+
+- `temp_dtm.tif`, `dtm_filled.tif`, `flow_pointer.tif`, `flow_acc.tif`, `streams.tif`
+- `dtm_inverted.tif`, `dtm_filled_inverted.tif`, `flow_pointer_inverted.tif`, `flow_acc_inverted.tif`, `streams_inverted.tif`
+
+Temporary shapefiles created by `extract_networks()` are deleted automatically after use.
 
 ---
 
@@ -58,28 +79,34 @@ library(terra)
 library(Rkeyline)
 
 dtm <- rast("path/to/your/dtm.tif")
+
+# Define your output folder once and reuse throughout the workflow
+output_folder <- "path/to/your/output_folder"
 ```
 
 ### Step 2: Calculate geomorphology metrics
 
-This is the foundation of the entire workflow. Run it once and reuse the results.
+This is the foundation of the entire workflow. Run it once and reuse the results. WhiteboxTools writes intermediate raster files to `output_folder` — these must remain available for Step 3.
 
 ```r
-metrics <- calc_geomorph_metrics(dtm)
+metrics <- calc_geomorph_metrics(dtm, output_folder = output_folder)
 ```
 
 Returns slope, aspect, hillshade, contours, flow accumulation, stream networks, and their inverted equivalents for ridge analysis.
 
 Key parameters:
+- `output_folder` — path for WhiteboxTools intermediate files (**must be the same in Step 3**)
 - `contour_interval` — elevation spacing for contours (default: 10)
 - `stream_threshold` — number of cells required to form a stream (default: 1000)
 - `breach_dist` — maximum breach distance for depression filling (default: 50)
 
 ### Step 3: Extract valley and ridge networks
 
+WhiteboxTools reads the intermediate files written in Step 2. **Pass the same `output_folder` as in Step 2.**
+
 ```r
-valleys <- extract_networks(dtm, type = "valley", metrics = metrics)
-ridges  <- extract_networks(dtm, type = "ridge",  metrics = metrics)
+valleys <- extract_networks(dtm, type = "valley", metrics = metrics, output_folder = output_folder)
+ridges  <- extract_networks(dtm, type = "ridge",  metrics = metrics, output_folder = output_folder)
 ```
 
 ### Step 4: Extract main valleys and ridges
@@ -155,6 +182,6 @@ MIT
 
 ## Acknowledgements
 
-The algorithms in this package are based on the 
-[TopoDrain plugin](https://github.com/wickit7/topo-drain-plugin), which provided 
+The algorithms in this package are based on the
+[TopoDrain plugin](https://github.com/wickit7/topo-drain-plugin), which provided
 the methodological foundation for the terrain analysis.
