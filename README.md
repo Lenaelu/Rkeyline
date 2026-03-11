@@ -138,6 +138,9 @@ plot_dtm_contours(dtm, metrics = metrics)
 # Slope with contours and stream network
 plot_slope_channels(dtm, metrics = metrics)
 
+# Interactive flow accumulation comparison (Shiny)
+plot_flow_acc(dtm, metrics = metrics)
+
 # Main valleys and ridges
 plot_main_networks(dtm,
                    main_valleys = main_valleys,
@@ -146,9 +149,6 @@ plot_main_networks(dtm,
 
 # Keylines with slope and contours
 plot_keylines(dtm, metrics = metrics, keylines = valley_keylines)
-
-# Interactive flow accumulation comparison (Shiny)
-plot_flow_acc(dtm, metrics = metrics)
 ```
 
 ---
@@ -164,9 +164,9 @@ plot_flow_acc(dtm, metrics = metrics)
 | `create_keylines()` | Generate approximate keylines from valley or ridge lines |
 | `plot_dtm_contours()` | Plot DTM with hillshade and contours |
 | `plot_slope_channels()` | Plot slope with contours and stream network |
+| `plot_flow_acc()` | Interactive Shiny app for flow accumulation comparison |
 | `plot_main_networks()` | Plot DTM with main valley and ridge lines |
 | `plot_keylines()` | Plot keylines with slope and contours |
-| `plot_flow_acc()` | Interactive Shiny app for flow accumulation comparison |
 
 ---
 
