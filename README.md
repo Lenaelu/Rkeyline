@@ -1,6 +1,6 @@
 # Rkeyline
 
-**Rkeyline** is an R package for terrain and keyline analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.
+**Rkeyline** is an R package to support desktop keyline design planning and terrain analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.
 
 > ⚠️ Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.
 
@@ -72,16 +72,28 @@ DTM → calc_geomorph_metrics()
 
 ## Usage
 
-### Step 1: Load your DTM
+A small example DTM is included in the package to get started quickly. You can use it to run the full workflow without needing your own data:
 
 ```r
 library(terra)
 library(Rkeyline)
 
-dtm <- rast("path/to/your/dtm.tif")
+# Load the built-in example DTM
+dtm <- terra::rast(system.file("extdata", "example_dtm.tif", package = "Rkeyline"))
+```
 
+Or load your own DTM:
+
+```r
+dtm <- terra::rast("path/to/your/dtm.tif")
+```
+
+### Step 1: Set your output folder
+
+```r
 # Define your output folder once and reuse throughout the workflow
-output_folder <- "path/to/your/output_folder"
+output_folder <- "C:/my_project/rkeyline_temp"   # Windows
+output_folder <- "/home/user/my_project/temp"     # Mac/Linux
 ```
 
 ### Step 2: Calculate geomorphology metrics
