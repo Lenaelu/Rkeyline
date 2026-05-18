@@ -170,8 +170,6 @@ plot_flow_acc(dtm, metrics = metrics)
 plot_main_networks(dtm, main_valleys = main_valleys, metrics = metrics)
 ```
 
-![Main valleys](img_folder/plot_main_valleys.png)
-
 ---
 
 ### Main ridge networks
@@ -179,8 +177,6 @@ plot_main_networks(dtm, main_valleys = main_valleys, metrics = metrics)
 ```r
 plot_main_networks(dtm, main_ridges = main_ridges, metrics = metrics)
 ```
-
-![Main ridges](img_folder/plot_main_ridges.png)
 
 ---
 
