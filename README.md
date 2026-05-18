@@ -95,6 +95,7 @@ metrics <- calc_geomorph_metrics(dtm, output_folder = output_folder)
 Returns slope, aspect, hillshade, contours, flow accumulation, stream networks, and their inverted equivalents for ridge analysis.
 
 Key parameters:
+
 - `output_folder` — path for WhiteboxTools intermediate files (**must be the same in Step 3**)
 - `contour_interval` — elevation spacing for contours (default: 10)
 - `stream_threshold` — number of cells required to form a stream (default: 1000)
@@ -131,32 +132,82 @@ ridge_keylines  <- create_keylines(dtm, main_ridges,  metrics$contours, n_keylin
 
 All plot functions accept pre-calculated metrics for efficiency.
 
+### DTM with hillshade and contours
+
 ```r
-# DTM with hillshade and contours
 plot_dtm_contours(dtm, metrics = metrics)
+```
 
-# Slope with contours and stream network
+![DTM with contours](img_folder/plot_dtm_contours.png)
+
+---
+
+### Slope with contours and stream network
+
+```r
 plot_slope_channels(dtm, metrics = metrics)
+```
 
-# Interactive flow accumulation comparison (Shiny)
+![Slope with channels](img_folder/plot_slope_channels.png)
+
+---
+
+### Flow accumulation comparison
+
+```r
 plot_flow_acc(dtm, metrics = metrics)
+```
 
-# Main valleys and ridges
-plot_main_networks(dtm,
-                   main_valleys = main_valleys,
-                   main_ridges  = main_ridges,
-                   metrics      = metrics)
+![Flow accumulation](img_folder/plot_flow_acc.png)
 
-# Keylines with slope and contours
+> 💡 In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.
+
+---
+
+### Main valley networks
+
+```r
+plot_main_networks(dtm, main_valleys = main_valleys, metrics = metrics)
+```
+
+![Main valleys](img_folder/plot_main_valleys.png)
+
+---
+
+### Main ridge networks
+
+```r
+plot_main_networks(dtm, main_ridges = main_ridges, metrics = metrics)
+```
+
+![Main ridges](img_folder/plot_main_ridges.png)
+
+---
+
+### Combined valleys and ridges
+
+```r
+plot_main_networks(dtm, main_valleys = main_valleys, main_ridges = main_ridges, metrics = metrics)
+```
+
+![Main networks](img_folder/plot_main_networks.png)
+
+---
+
+### Keylines with slope and contours
+
+```r
 plot_keylines(dtm, metrics = metrics, keylines = valley_keylines)
 ```
+
+![Keylines](img_folder/plot_keylines.png)
 
 ---
 
 ## Function Reference
 
 | Function | Description |
-|---|---|
+| --- | --- |
 | `calc_geomorph_metrics()` | Calculate all terrain and hydrological metrics from a DTM |
 | `extract_networks()` | Extract valley or ridge networks |
 | `extract_main_valleys()` | Identify main valley lines by flow accumulation |
@@ -180,8 +231,8 @@ Keyline design is a land and water management methodology developed by P.A. Yeom
 
 MIT
 
+---
+
 ## Acknowledgements
 
-The algorithms in this package are based on the
-[TopoDrain plugin](https://github.com/wickit7/topo-drain-plugin), which provided
-the methodological foundation for the terrain analysis.
+The algorithms in this package are based on the [TopoDrain plugin](https://github.com/wickit7/topo-drain-plugin), which provided the methodological foundation for the terrain analysis.
