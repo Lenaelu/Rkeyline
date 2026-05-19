@@ -172,6 +172,7 @@
 <div class="section level3">
 <h3 id="step-5-generate-approximate-keylines">Step 5: Generate approximate keylines<a class="anchor" aria-label="anchor" href="#step-5-generate-approximate-keylines"></a>
 </h3>
+<p>Points are sampled along the input valley or ridge line, snapped to the nearest contour interval, and matched against pre-computed contours to find where the terrain naturally changes character. The resulting keylines are true contour lines evenly distributed across the elevation range.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">valley_keylines</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_keylines.html">create_keylines</a></span><span class="op">(</span><span class="va">dtm</span>, <span class="va">main_valleys</span>, <span class="va">metrics</span><span class="op">$</span><span class="va">contours</span>, n_keylines <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">ridge_keylines</span>  <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_keylines.html">create_keylines</a></span><span class="op">(</span><span class="va">dtm</span>, <span class="va">main_ridges</span>,  <span class="va">metrics</span><span class="op">$</span><span class="va">contours</span>, n_keylines <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
