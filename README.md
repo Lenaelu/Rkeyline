@@ -133,6 +133,8 @@ main_ridges  <- extract_main_ridges(ridges,  dtm, nr_main = 2, metrics = metrics
 
 ### Step 5: Generate approximate keylines
 
+Points are sampled along the input valley or ridge line, snapped to the nearest contour interval, and matched against pre-computed contours to find where the terrain naturally changes character. The resulting keylines are true contour lines evenly distributed across the elevation range.
+
 ```r
 valley_keylines <- create_keylines(dtm, main_valleys, metrics$contours, n_keylines = 3)
 ridge_keylines  <- create_keylines(dtm, main_ridges,  metrics$contours, n_keylines = 3)
