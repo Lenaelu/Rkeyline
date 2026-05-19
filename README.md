@@ -2,7 +2,7 @@
 
 **Rkeyline** is an R package to support desktop keyline design planning and terrain analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.
 
-> ⚠️ Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.
+> **Note:** Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.
 
 ---
 
@@ -34,7 +34,7 @@ whitebox::install_whitebox()
 
 Several functions use WhiteboxTools under the hood, which requires intermediate files to be written to disk. **You must specify an `output_folder` that exists and is writable on your system.** Both `calc_geomorph_metrics()` and `extract_networks()` need access to the same folder — files written in Step 2 are read again in Step 3.
 
-> ⚠️ Do not rely on the default `tempdir()`. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and `extract_networks()` will fail. Always set a persistent folder explicitly.
+> **Note:**: Do not rely on the default `tempdir()`. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and `extract_networks()` will fail. Always set a persistent folder explicitly.
 
 ```r
 # Set once and reuse throughout the entire workflow
@@ -172,7 +172,7 @@ plot_flow_acc(dtm, metrics = metrics)
 
 ![Flow accumulation](img_folder/plot_flow_acc.png)
 
-> 💡 In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.
+> **Note:** In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.
 
 ---
 
