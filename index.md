@@ -200,7 +200,8 @@ All plot functions accept pre-calculated metrics for efficiency.
 plot_dtm_contours(dtm, metrics = metrics)
 ```
 
-![DTM with contours](img_folder/plot_dtm_contours.png)
+![DTM with
+contours](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_dtm_contours.png)
 
 DTM with contours
 
@@ -213,7 +214,8 @@ DTM with contours
 plot_slope_channels(dtm, metrics = metrics)
 ```
 
-![Slope with channels](img_folder/plot_slope_channels.png)
+![Slope with
+channels](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_slope_channels.png)
 
 Slope with channels
 
@@ -226,7 +228,8 @@ Slope with channels
 plot_flow_acc(dtm, metrics = metrics)
 ```
 
-![Flow accumulation](img_folder/plot_flow_acc.png)
+![Flow
+accumulation](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_flow_acc.png)
 
 Flow accumulation
 
@@ -260,7 +263,8 @@ plot_main_networks(dtm, main_ridges = main_ridges, metrics = metrics)
 plot_main_networks(dtm, main_valleys = main_valleys, main_ridges = main_ridges, metrics = metrics)
 ```
 
-![Main networks](img_folder/plot_main_networks.png)
+![Main
+networks](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_main_networks.png)
 
 Main networks
 
@@ -273,7 +277,7 @@ Main networks
 plot_keylines(dtm, metrics = metrics, keylines = valley_keylines)
 ```
 
-![Keylines](img_folder/plot_keylines.png)
+![Keylines](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_keylines.png)
 
 Keylines
 
