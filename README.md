@@ -1,4 +1,4 @@
-# Rkeyline
+# Rkeyline <img src="man/figures/logo.png" align="right" height="139"/>
 
 **Rkeyline** is an R package to support desktop keyline design planning and terrain analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.
 
