@@ -1,8 +1,8 @@
-# Rkeyline
+# Rkeyline <img src="man/figures/logo.png" align="right" height="139"/>
 
 **Rkeyline** is an R package to support desktop keyline design planning and terrain analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.
 
-**Note:** Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.
+> **Note:** Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.
 
 ---
 
@@ -34,7 +34,7 @@ whitebox::install_whitebox()
 
 Several functions use WhiteboxTools under the hood, which requires intermediate files to be written to disk. **You must specify an `output_folder` that exists and is writable on your system.** Both `calc_geomorph_metrics()` and `extract_networks()` need access to the same folder — files written in Step 2 are read again in Step 3.
 
-**Note:** Do not rely on the default `tempdir()`. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and `extract_networks()` will fail. Always set a persistent folder explicitly.
+> **Note:**: Do not rely on the default `tempdir()`. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and `extract_networks()` will fail. Always set a persistent folder explicitly.
 
 ```r
 # Set once and reuse throughout the entire workflow
@@ -150,7 +150,7 @@ All plot functions accept pre-calculated metrics for efficiency.
 plot_dtm_contours(dtm, metrics = metrics)
 ```
 
-![DTM with contours](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_dtm_contours.png)
+![DTM with contours](img_folder/plot_dtm_contours.png)
 
 ---
 
@@ -160,7 +160,7 @@ plot_dtm_contours(dtm, metrics = metrics)
 plot_slope_channels(dtm, metrics = metrics)
 ```
 
-![Slope with channels](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_slope_channels.png)
+![Slope with channels](img_folder/plot_slope_channels.png)
 
 ---
 
@@ -170,9 +170,9 @@ plot_slope_channels(dtm, metrics = metrics)
 plot_flow_acc(dtm, metrics = metrics)
 ```
 
-![Flow accumulation](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_flow_acc.png)
+![Flow accumulation](img_folder/plot_flow_acc.png)
 
-**Note:** In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.
+> **Note:** In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.
 
 ---
 
@@ -198,7 +198,7 @@ plot_main_networks(dtm, main_ridges = main_ridges, metrics = metrics)
 plot_main_networks(dtm, main_valleys = main_valleys, main_ridges = main_ridges, metrics = metrics)
 ```
 
-![Main networks](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_main_networks.png)
+![Main networks](img_folder/plot_main_networks.png)
 
 ---
 
@@ -208,7 +208,7 @@ plot_main_networks(dtm, main_valleys = main_valleys, main_ridges = main_ridges, 
 plot_keylines(dtm, metrics = metrics, keylines = valley_keylines)
 ```
 
-![Keylines](https://raw.githubusercontent.com/Lenaelu/Rkeyline/main/img_folder/plot_keylines.png)
+![Keylines](img_folder/plot_keylines.png)
 
 ---
 
