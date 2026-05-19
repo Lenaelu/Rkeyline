@@ -47,12 +47,12 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="rkeyline-">Rkeyline <a class="anchor" aria-label="anchor" href="#rkeyline-"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="rkeyline">Rkeyline<a class="anchor" aria-label="anchor" href="#rkeyline"></a>
 </h1>
 </div>
 <p><strong>Rkeyline</strong> is an R package to support desktop keyline design planning and terrain analysis from Digital Elevation Models (DTMs). It provides a complete workflow from raw DTM data to approximate keyline design, covering geomorphological analysis, valley and ridge network extraction, and visualization.</p>
 <blockquote>
-<p><strong>Note:</strong> Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.</p>
+<p>⚠️ Generated keylines are computational approximations for desktop planning only. Always verify and adjust keylines on-site with an experienced practitioner before implementation.</p>
 </blockquote>
 <hr>
 <div class="section level2">
@@ -79,7 +79,7 @@
 </h2>
 <p>Several functions use WhiteboxTools under the hood, which requires intermediate files to be written to disk. <strong>You must specify an <code>output_folder</code> that exists and is writable on your system.</strong> Both <code><a href="reference/calc_geomorph_metrics.html">calc_geomorph_metrics()</a></code> and <code><a href="reference/extract_networks.html">extract_networks()</a></code> need access to the same folder — files written in Step 2 are read again in Step 3.</p>
 <blockquote>
-<p><strong>Note:</strong>: Do not rely on the default <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code>. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and <code><a href="reference/extract_networks.html">extract_networks()</a></code> will fail. Always set a persistent folder explicitly.</p>
+<p>⚠️ Do not rely on the default <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code>. Temporary directories are cleared when your R session ends, so if you restart R between steps the intermediate files will be gone and <code><a href="reference/extract_networks.html">extract_networks()</a></code> will fail. Always set a persistent folder explicitly.</p>
 </blockquote>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set once and reuse throughout the entire workflow</span></span>
@@ -211,7 +211,7 @@
 <img src="img_folder/plot_flow_acc.png" alt="Flow accumulation"><div class="figcaption">Flow accumulation</div>
 </div>
 <blockquote>
-<p><strong>Note:</strong> In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.</p>
+<p>💡 In the package this is fully interactive — toggle layers and adjust opacity via a Shiny app.</p>
 </blockquote>
 <hr>
 </div>

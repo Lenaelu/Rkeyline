@@ -6,9 +6,9 @@ complete workflow from raw DTM data to approximate keyline design,
 covering geomorphological analysis, valley and ridge network extraction,
 and visualization.
 
-> **Note:** Generated keylines are computational approximations for
-> desktop planning only. Always verify and adjust keylines on-site with
-> an experienced practitioner before implementation.
+> ⚠️ Generated keylines are computational approximations for desktop
+> planning only. Always verify and adjust keylines on-site with an
+> experienced practitioner before implementation.
 
 ------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ and
 need access to the same folder — files written in Step 2 are read again
 in Step 3.
 
-> **Note:**: Do not rely on the default
+> ⚠️ Do not rely on the default
 > [`tempdir()`](https://rdrr.io/r/base/tempfile.html). Temporary
 > directories are cleared when your R session ends, so if you restart R
 > between steps the intermediate files will be gone and
@@ -230,8 +230,8 @@ plot_flow_acc(dtm, metrics = metrics)
 
 Flow accumulation
 
-> **Note:** In the package this is fully interactive — toggle layers and
-> adjust opacity via a Shiny app.
+> 💡 In the package this is fully interactive — toggle layers and adjust
+> opacity via a Shiny app.
 
 ------------------------------------------------------------------------
 
